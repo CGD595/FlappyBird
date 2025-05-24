@@ -56,52 +56,52 @@ Flappy_bird_JAVA/
 | 10                                                                                                                 | Flyweight (partial)   | Shared tube textures                    | Reduce memory use by reusing shared image data       |
 | The project uses the following **10 design patterns**, each improving specific aspects of the game's architecture: |                       |                                         |                                                      |
 
-### ✅ 1. **State Pattern**
+### 1. **State Pattern**
 
 * **Used in**: `GameStateManager` and `State` subclasses (`MenuState`, `PlayState`, `CreditState`, `LeaderboardState`)
 * **Purpose**: Manages different game screens and their transitions.
 
-### ✅ 2. **Template Method Pattern**
+### 2. **Template Method Pattern**
 
 * **Used in**: `State.java` abstract class
 * **Purpose**: Defines the game loop template (`handleInput`, `update`, `render`) that each state must implement.
 
-### ✅ 3. **Singleton Pattern**
+### 3. **Singleton Pattern**
 
 * **Used in**: `SoundManager.java`
 * **Purpose**: Ensures only one instance of the sound manager controls all audio.
 
-### ✅ 4. **Command Pattern**
+### 4. **Command Pattern**
 
 * **Used in**: `JumpCommand`, `RestartCommand`, `SaveScoreCommand`, `ResetHighScoreCommand`
 * **Purpose**: Decouples input handling from game logic.
 
-### ✅ 5. **Strategy Pattern**
+### 5. **Strategy Pattern**
 
 * **Used in**: Bird movement logic (strategy can vary for power-ups)
 * **Purpose**: Enables interchangeable bird movement behaviors.
 
-### ✅ 6. **Decorator Pattern**
+### 6. **Decorator Pattern**
 
 * **Used in**: `BirdDecorator` and its subclasses (`SpeedBoostDecorator`, `InvincibilityDecorator`, `ScoreMultiplierDecorator`)
 * **Purpose**: Dynamically adds power-up behaviors to the bird without modifying the base class.
 
-### ✅ 7. **Factory Pattern**
+### 7. **Factory Pattern**
 
 * **Used in**: `GameStateFactory.java`
 * **Purpose**: Creates game states without exposing instantiation logic.
 
-### ✅ 8. **Observer Pattern** (manual/implicit)
+### 8. **Observer Pattern** (manual/implicit)
 
 * **Used in**: Score updating and UI notifications
 * **Purpose**: Notifies different parts of the game when score or state changes.
 
-### ✅ 9. **Object Pool Pattern** (recommended / partially implemented)
+### 9. **Object Pool Pattern** (recommended / partially implemented)
 
 * **Used in**: Tube recycling logic
 * **Purpose**: Reuses tube objects to reduce memory allocation.
 
-### ✅ 10. **Flyweight Pattern** (partial)
+### 10. **Flyweight Pattern** (partial)
 
 * **Used in**: `Tube.java`
 * **Purpose**: Shares the same texture instance across multiple tubes to save memory.
