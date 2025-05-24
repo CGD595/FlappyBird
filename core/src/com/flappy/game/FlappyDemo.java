@@ -2,45 +2,42 @@ package com.flappy.game;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.flappy.game.states.GameStateManager;
 import com.flappy.game.states.MenuState;
+import sprites.TubeFactory;
+import com.flappy.game.SoundManager;
 
 public class FlappyDemo extends ApplicationAdapter {
 	public static final int WIDTH = 480;
 	public static final int HEIGHT = 800;
 	public static final String TITLE = "Flappy Bird";
 	private GameStateManager gsm;
-	private SpriteBatch batch;
-	private Music music;
-	Texture img;
-	
+	private GameFacade facade;
+	private TubeFactory tubeFactory;
+
 	@Override
-	public void create () {
-		batch = new SpriteBatch();
+	public void create() {
+		facade = new GameFacade();
 		gsm = new GameStateManager();
-		music = Gdx.audio.newMusic(Gdx.files.internal("phudosa.mp3"));
-		music.setLooping(true);
-		music.setVolume(0.1f);
-		music.play();
+		tubeFactory = new TubeFactory();
+		SoundManager.getInstance().initialize();
 		ScreenUtils.clear(1, 0, 0, 1);
 		gsm.push(new MenuState(gsm));
-		//Gdx.gl.glClearColor(1,0,0,1);
 	}
 
 	@Override
-	public void render () {
-		//Gdx.gl.glClearColor(GL20.GL_COLOR_BUFFER_BIT);
-		gsm.update(Gdx.graphics.getDeltaTime());
-		gsm.render(batch);
+	public void render() {
+		facade.render(gsm);
 	}
 
 	@Override
-	public void dispose () {
-		super.dispose();
-		music.dispose();
+	public void dispose() {
+		facade.dispose();
+		tubeFactory.dispose();
+		SoundManager.getInstance().dispose();
+		Gdx.app.log("FlappyDemo", "Disposed application resources");
 	}
 }
