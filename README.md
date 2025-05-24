@@ -154,6 +154,3 @@ Make sure `Java 8+` is installed and your Android Studio project SDK is set.
 
 ---
 
-## Author
-
-This project was built and documented using guidance and feedback with debugging help.
