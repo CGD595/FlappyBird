@@ -107,6 +107,7 @@ public class PlayState extends State{
                 tube.reposition(tube.getPosTopTube().x + ((Tube.TUBE_WIDTH + TUBE_SPACING) * TUBE_COUNT));
                 score++; // Increment the score when the bird passes through a tube
             }
+
             if (tube.collides(bird.getBounds())) {
                 gsm.set(new CreditState(gsm, score));
             }

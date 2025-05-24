@@ -23,7 +23,6 @@ public class Animation {
         maxFrameTime = cycleTime / frameCount; // Calculate the maximum time for each frame
         frame = 0; // Start with the first frame
     }
-
     // Update method to progress the animation based on the elapsed time
     public void update(float dt) {
         currentFrameTime += dt; // Add the elapsed time to the current frame time

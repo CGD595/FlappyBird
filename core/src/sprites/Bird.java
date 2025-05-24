@@ -33,7 +33,6 @@ public class Bird{
         // Load flap sound
         flap = Gdx.audio.newSound(Gdx.files.internal("sfx_wing.ogg"));
     }
-
     // Update bird's position and animation
     public void update(float dt) {
         birdAnimation.update(dt);

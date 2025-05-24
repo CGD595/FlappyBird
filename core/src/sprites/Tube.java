@@ -14,7 +14,6 @@ public class Tube {
     // Increase this value to raise the bottom tube position
     private static final int LOWEST_OPENING = 120;
 
-
     private Texture topTube, bottomTube;
     private Vector2 posTopTube, posBotTube;
     private Rectangle boundsTop, boundsBot;
